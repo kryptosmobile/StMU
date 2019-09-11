@@ -89,7 +89,7 @@
    <access origin="*" />
    <allow-navigation href="*" />
    <allow-intent href="*" />
-   <plugin name="cordova-plugin-contacts" source="npm">
+   <plugin name="cordova-plugin-contacts" source="npm"/>
       <variable name="CONTACTS_USAGE_DESCRIPTION" value="To add contact" />
    </plugin>
    <gap:plugin name="cordova-plugin-camera" source="npm" spec="2.4.1" />
