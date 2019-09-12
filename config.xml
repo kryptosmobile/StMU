@@ -164,6 +164,17 @@
          <false />
       </edit-config>
    </platform>
+        
+        <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
+    <string>App would like to access the current location to show the direction to different campus locations</string>
+</edit-config>
+
+
+<edit-config target="NSLocationAlwaysUsageDescription" file="*-Info.plist" mode="merge">
+    <string>App would like to access the current location to show the direction to different campus locations</string>
+</edit-config>
+
+        
    <platform name="android">
       <uses-permission name="android.permission.ACCESS_COARSE_LOCATION" />
       <uses-permission name="android.permission.ACCESS_FINE_LOCATION" />
