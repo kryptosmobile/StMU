@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "42448726056",
-    "firebase_url": "https://stmu-a8e4c.firebaseio.com",
-    "project_id": "stmu-a8e4c",
-    "storage_bucket": "stmu-a8e4c.appspot.com"
+    "project_number": "763688343243",
+    "firebase_url": "https://stmu-864e3.firebaseio.com",
+    "project_id": "stmu-864e3",
+    "storage_bucket": "stmu-864e3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:42448726056:android:ff7dd7203d9269f905ad1d",
+        "mobilesdk_app_id": "1:763688343243:android:43d27697caeca1c043ed4e",
         "android_client_info": {
           "package_name": "com.unifyed.stmarytx"
         }
       },
       "oauth_client": [
         {
-          "client_id": "42448726056-7doludsgqnead0c4e83vtnq5055u1ncv.apps.googleusercontent.com",
+          "client_id": "763688343243-0mn3tk4qi687k4t1k3f5okp9r7br3qpf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA6vopc9CePYcoOG2nfv9WdTRN4RGP-ljY"
+          "current_key": "AIzaSyC9_Hq2L11pX-56YI4vq-LlvXbs-ptikTM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "42448726056-7doludsgqnead0c4e83vtnq5055u1ncv.apps.googleusercontent.com",
+              "client_id": "763688343243-0mn3tk4qi687k4t1k3f5okp9r7br3qpf.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
