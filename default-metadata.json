@@ -1,5 +1,5 @@
 {
-  "version": 1342,
+  "version": 1346,
   "tenantid": "StMU",
   "mobappid": 6736,
   "appName": "myStMU",
@@ -568,8 +568,8 @@
           "quickdialnumbers": 
           [
             {
-              "grade": "A",
-              "grade_point": "4.0"
+              "grade_point": "4.0",
+              "grade": "A"
             },
             {
               "grade_point": "3.67",
@@ -588,20 +588,20 @@
               "grade": "B-"
             },
             {
-              "grade": "C+",
-              "grade_point": "2.33"
+              "grade_point": "2.33",
+              "grade": "C+"
             },
             {
-              "grade": "C",
-              "grade_point": "2.0"
+              "grade_point": "2.0",
+              "grade": "C"
             },
             {
-              "grade_point": "1.67",
-              "grade": "C-"
+              "grade": "C-",
+              "grade_point": "1.67"
             },
             {
-              "grade_point": null,
-              "grade": null
+              "grade": null,
+              "grade_point": null
             }
           ]
         }
@@ -933,82 +933,82 @@
           "feeds": 
           [
             {
-              "name": "Men's Baseball",
               "scourl": null,
-              "schurl": "http://rattlerathletics.com/services/calendar.ashx?type=rss&sport=1",
-              "newsurl": "http://rattlerathletics.com/rss.aspx?path=baseball"
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=1",
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=baseball",
+              "name": "Men's Baseball"
             },
             {
-              "newsurl": "http://rattlerathletics.com/rss.aspx?path=mbball",
-              "schurl": "http://rattlerathletics.com/services/calendar.ashx?type=rss&sport=6",
               "scourl": null,
-              "name": "Men's Basketball"
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=6",
+              "name": "Men's Basketball",
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=mbball"
             },
             {
-              "name": "Men's Golf",
-              "schurl": "http://rattlerathletics.com/services/calendar.ashx?type=rss&sport=7",
-              "newsurl": "http://rattlerathletics.com/rss.aspx?path=mgolf",
+              "scourl": null,
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=7",
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=mgolf",
+              "name": "Men's Golf"
+            },
+            {
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=msoc",
+              "scourl": null,
+              "name": "Men's Soccer",
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=8"
+            },
+            {
+              "name": "Men's Tennis",
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=9",
+              "scourl": null,
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=mten"
+            },
+            {
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=11",
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=wbball",
+              "scourl": null,
+              "name": "Women's Basketball"
+            },
+            {
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=12",
+              "scourl": null,
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=wgolf",
+              "name": "Women's Golf"
+            },
+            {
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=wsoc",
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=13",
+              "name": "Women's Soccer",
               "scourl": null
             },
             {
-              "newsurl": "http://rattlerathletics.com/rss.aspx?path=msoc",
               "scourl": null,
-              "schurl": "http://rattlerathletics.com/services/calendar.ashx?type=rss&sport=8",
-              "name": "Men's Soccer"
-            },
-            {
-              "scourl": null,
-              "schurl": "http://rattlerathletics.com/services/calendar.ashx?type=rss&sport=9",
-              "newsurl": "http://rattlerathletics.com/rss.aspx?path=mten",
-              "name": "Men's Tennis"
-            },
-            {
-              "name": "Women's Basketball",
-              "newsurl": "http://rattlerathletics.com/rss.aspx?path=wbball",
-              "scourl": null,
-              "schurl": "http://rattlerathletics.com/services/calendar.ashx?type=rss&sport=11"
-            },
-            {
-              "scourl": null,
-              "name": "Women's Golf",
-              "newsurl": "http://rattlerathletics.com/rss.aspx?path=wgolf",
-              "schurl": "http://rattlerathletics.com/services/calendar.ashx?type=rss&sport=12"
-            },
-            {
-              "schurl": "http://rattlerathletics.com/services/calendar.ashx?type=rss&sport=13",
-              "scourl": null,
-              "name": "Women's Soccer",
-              "newsurl": "http://rattlerathletics.com/rss.aspx?path=wsoc"
-            },
-            {
-              "newsurl": "http://rattlerathletics.com/rss.aspx?path=wten",
               "name": "Women's Tennis",
-              "scourl": null,
-              "schurl": "http://rattlerathletics.com/services/calendar.ashx?type=rss&sport=14"
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=wten",
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=14"
             },
             {
-              "newsurl": "http://rattlerathletics.com/rss.aspx?path=softball",
               "name": "Women's Softball",
-              "scourl": null,
-              "schurl": "http://rattlerathletics.com/services/calendar.ashx?type=rss&sport=10"
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=10",
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=softball",
+              "scourl": null
             },
             {
               "name": "Women's Volleyball",
               "scourl": null,
-              "newsurl": "http://rattlerathletics.com/rss.aspx?path=wvball",
-              "schurl": "http://rattlerathletics.com/services/calendar.ashx?type=rss&sport=15"
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=15",
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=wvball"
+            },
+            {
+              "name": "Cheer",
+              "scourl": null,
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=16",
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=cheer"
             },
             {
               "scourl": null,
-              "newsurl": "http://rattlerathletics.com/rss.aspx?path=cheer",
-              "schurl": "http://rattlerathletics.com/services/calendar.ashx?type=rss&sport=16",
-              "name": "Cheer"
-            },
-            {
-              "scourl": null,
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=dance",
               "name": "Dance",
-              "newsurl": "http://rattlerathletics.com/rss.aspx?path=dance",
-              "schurl": "http://rattlerathletics.com/services/calendar.ashx?type=rss&sport=18"
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=18"
             }
           ]
         },
@@ -1809,16 +1809,16 @@
           "quickdialnumbers": 
           [
             {
-              "number": "210-431-1911",
-              "name": "Emergency Assistance"
+              "name": "Emergency Assistance",
+              "number": "210-431-1911"
             },
             {
-              "number": "210-436-3330",
-              "name": "Non Emergency Assistance"
+              "name": "Non Emergency Assistance",
+              "number": "210-436-3330"
             },
             {
-              "number": "210-436-3472",
-              "name": "University Police Administration"
+              "name": "University Police Administration",
+              "number": "210-436-3472"
             }
           ]
         }
