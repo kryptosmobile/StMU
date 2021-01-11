@@ -9,6 +9,9 @@
         
    
        <!--<preference name="phonegap-version" value="cli-7.1.0" />-->
+   <preference name='phonegap-version' value='cli-9.0.0'/>
+   <preference name='pgb-builder-version' value='2'/>
+
    <preference name="permissions" value="none" />
    <preference name="orientation" value="portrait" />
    <!-- all: default means both landscape and portrait are enabled -->
@@ -130,6 +133,11 @@
    <gap:plugin name="phonegap-plugin-push" source="npm" spec="1.8.2">
       <param name="SENDER_ID" value="584246405361" />
    </gap:plugin>
+    
+   <platform name="android">
+      <resource-file src="google-services.json" target="/app/google-services.json" />
+   </platform>
+
    <gap:plugin name="cordova-plugin-actionsheet" source="npm" />
    <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" spec="5.4.1" />
    <gap:plugin name="cordova-plugin-app-launcher" source="npm" />
@@ -174,9 +182,9 @@
     <string>App would like to access the current location to show the direction to different campus locations</string>
 </edit-config>
 
-     <platform name="android">
+     <!--<platform name="android">
       <resource-file src="google-services.json" target="/google-services.json" />
-   </platform>
+   </platform>-->
         
    <platform name="android">
       <uses-permission name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -203,8 +211,5 @@
       </array>
     </edit-config>
 
-   <platform name="android">
-      <resource-file src="google-services.json" target="/google-services.json" />
-   </platform>
    
 </widget>
