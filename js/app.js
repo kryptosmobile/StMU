@@ -951,7 +951,7 @@ var MyCampusApp = {
             });
     },
 
-    activatePushNotification : function(tenantId,$http) {
+   /* activatePushNotification : function(tenantId,$http) {
             try {
             //alert("notificationcalled");
             var gcmSenderID = "584246405361"; // Comment this line once we have added upgraded our platform to send push.
@@ -1011,7 +1011,74 @@ var MyCampusApp = {
             alert(e)
         }
 
+    },*/
+           activatePushNotification : function(tenantId,$http) {
+        try {
+            var gcmSenderID = "584246405361"; // Comment this line once we have added upgraded our platform to send push.
+            if ($.jStorage.get("deviceID") == null || $.jStorage.get("deviceID") == undefined) {
+                MyCampusApp.rootScope.push = PushNotification.init({
+                                                                   android: {
+                                                                   senderID: gcmSenderID,
+                                                                           icon: "myicon",
+                                                                           iconColor: "#123456",
+                                                                           vibrate: true,
+                                                                           sound: true
+                                                                   },
+                                                                   browser: {
+                                                                   pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+                                                                   },
+                                                                   ios: {
+                                                                   alert: "true",
+                                                                   badge: "true",
+                                                                   sound: "true"
+                                                                   },
+                                                                   windows: {}
+                                                                   });
+                     try {
+         PushNotification.createChannel(
+           () => {
+             console.log("success");
+           },
+           () => {
+             console.log("error");
+           },
+           {
+             id: "stmunew",
+             description: "STMU push Channel",
+             importance: 1,
+             vibration: true,
+             sound: 'default',
+             visibility: 1
+           }
+         );
+       } catch (e) {
+         console.log("channel not created"+ e);
+       }
+                
+                MyCampusApp.rootScope.push.on('registration', function(data) {
+                                              var devicePushID = data.registrationId;
+                                              var pushDeviceData = {
+                                              "tenant": MyCampusApp.rootScope.tenant,
+                                              "id": devicePushID,
+                                              "type": device.platform,
+                                              "channel": "all"
+                                              };
+                                              $http.post("https://push.kryptosmobile.com/kryptosds/push/adddeviceToChannel", pushDeviceData).success(function(response) {
+                                                                                                                                              $.jStorage.set("deviceID", devicePushID);
+                                                                                                                                              //alert(JSON.stringify(response));
+                                                                                                                                              }).
+                                              error(function(err) {
+                                                    //alert("err" + JSON.stringify(response));
+                                                    });
+                                              
+                                              });
+            }
+        } catch (e) { 
+            //alert(e)
+        }
+                
     },
+
 
     logPageAccess : function(tenant, url, $http, appid, appname, pageid) {
         try {
