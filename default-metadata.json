@@ -1,10 +1,10 @@
 {
-  "version": 1372,
+  "version": 1387,
   "tenantid": "StMU",
   "mobappid": 6736,
   "appName": "myStMU",
   "appDisplayName": "myStMU",
-  "homeScreenTemplate": "<script>\r\n  try {\r\n    StatusBar.backgroundColorByHexString(\"#252729\");\r\n    StatusBar.overlaysWebView(false);\r\n  } catch (e) {}\r\n  MyCampusApp.rootScope.mobileAppName = \"myStMU\";\r\n<\/script>\r\n<script>\r\n  try {\r\n    if (!MyCampusApp.rootScope.cangelistadded) {\r\n      console.log(MyCampusApp);\r\n      MyCampusApp.rootScope.$on(\"$routeChangeStart\", function(event, next, current) {\r\n        //alert(event);\r\n        $(\".app-body\").removeClass(\"slideInDown\");\r\n        $(\".app-body\").removeClass(\"slideInRight\");\r\n        $(\".app-body\").removeClass(\"slideInLeft\");\r\n        $(\".app-body\").addClass(\"animated\");\r\n\r\n        //$(\".app-body\").addClass(\"slideOutUp\");\r\n\r\n      });\r\n      MyCampusApp.rootScope.$on(\"$routeChangeSuccess\", function(event, next, current) {\r\n        // alert('success');\r\n        console.log(\"route change success\");\r\n        console.log(\"Event:\");\r\n        console.log(event);\r\n        console.log(\"next:\");\r\n        console.log(next);\r\n        console.log(\"current:\");\r\n        console.log(current);\r\n        console.log(next.pathParams.appid);\r\n        console.log(\"----------\");\r\n        if (next.pathParams.appid != \"QuickLaunch4\") {\r\n          console.log(\"ql icon opacity restored\")\r\n          $('.divQuickLaunch img').css('opacity', '0.4');\r\n          $('.divQuickLaunch').css('opacity', '0.4');\r\n        }\r\n        if (next.params.appid == 'SignIn2') {\r\n          $(\".app-body\").addClass(\"slideInDown\");\r\n        } else {\r\n\r\n          console.log(MyCampusApp.rootScope.leftToRight);\r\n\r\n          if (MyCampusApp.rootScope.leftToRight) {\r\n            $(\".app-body\").addClass(\"slideInLeft\");\r\n            MyCampusApp.rootScope.leftToRight = false;\r\n          } else {\r\n            $(\".app-body\").addClass(\"slideInRight\");\r\n          }\r\n        }\r\n\r\n        $(\".app-body\").addClass(\"animated\");\r\n        //$(\".app-body\").removeClass(\"slideOutUp\");\r\n      });\r\n      MyCampusApp.rootScope.cangelistadded = true;\r\n    }\r\n  } catch (e) {\r\n    //alert(e)\r\n  }\r\n<\/script>\r\n\r\n<script>\r\n  try {\r\n    $(\"#mainSidebar\").css('background', '#232323 !important');\r\n\r\n    if ($.jStorage.get(\"userdetails\") != null && $.jStorage.get(\"userdetails\") != undefined) {\r\n      //alert(\"testrdt\");\r\n      var e = document.getElementsByClassName(\"app\")[0];\r\n      var $injector = angular.element(e).injector();\r\n      var $location = $injector.get('$location');\r\n      //$location.path(\"/app/Home4/Home4\");\r\n      $location.path(\"/app/Menu82/Menu82\");\r\n\r\n    } else {\r\n      var e = document.getElementsByClassName(\"app\")[0];\r\n      var $injector = angular.element(e).injector();\r\n      var $location = $injector.get('$location');\r\n      $location.path(\"/app/Menu82/Menu82\");\r\n    }\r\n  } catch (e) {\r\n    alert(e)\r\n  }\r\n<\/script>\r\n<script>\r\n  var onBackKeyDown = function(event) {\r\n    //alert('back');\r\n    var loc = window.location;\r\n    MyCampusApp.rootScope.leftToRight = true;\r\n    if (loc.hash == \"#/app/WhatsUp/WhatsUp\" || loc.hash == \"#/app/Menu82/Menu82\") {\r\n      navigator.app.exitApp();\r\n    } else if (loc.hash == \"#/app/SocialMedia3/SocialMedia3\") {\r\n      window.location.href = \"index.html#app/GuestApps/GuestApps\";\r\n      //alert(\"signuo\");\r\n    } else {\r\n      navigator.app.backHistory();\r\n\r\n    }\r\n  }\r\n  document.addEventListener(\"backbutton\", onBackKeyDown, true);\r\n<\/script>\r\n\r\n<script>\r\n  $('input:text').focusout(function() {\r\n\r\n    /*  document.getElementsByClassName('footerGroupIcons')[0].style.display = \"block !important\";\r\n     alert(document.getElementsByClassName('footerGroupIcons')[0].style.display);*/\r\n\r\n    $(\"#footerContentContainer\").addClass('footerGroupIcons').removeClass('hideFooter');\r\n    $(\"#bottomPoweredBy\").removeClass('hideFooter');\r\n\r\n  });\r\n\r\n  $('input:text').focusin(function() {\r\n    // document.getElementsByClassName('footerGroupIcons')[0].style.display = \"none !important\";\r\n    // alert(document.getElementsByClassName('footerGroupIcons')[0].style.display);\r\n    //$(\".footerGroupIcons\").css('display', 'none !important');\r\n\r\n    $(\"#footerContentContainer\").addClass('hideFooter').removeClass('footerGroupIcons');\r\n    $(\"#bottomPoweredBy\").addClass('hideFooter');\r\n  })\r\n<\/script>",
+  "homeScreenTemplate": "<script>\r\n  try {\r\n    StatusBar.backgroundColorByHexString(\"#252729\");\r\n    StatusBar.overlaysWebView(false);\r\n  } catch (e) {}\r\n  MyCampusApp.rootScope.mobileAppName = \"myStMU\";\r\n  MyCampusApp.rootScope.tenant = \"StMU\";\r\n\r\n  try {\r\n    var Notification = PushNotification.init({\r\n      android: {\r\n        senderID: \"584246405361\"\r\n      },\r\n      browser: {\r\n        pushServiceURL: 'http://push.api.phonegap.com/v1/push'\r\n      },\r\n      ios: {\r\n        alert: \"true\",\r\n        badge: \"true\",\r\n        sound: \"true\"\r\n      },\r\n      windows: {}\r\n    });\r\n    try {\r\n      PushNotification.createChannel(\r\n        () => {\r\n          console.log(\"success\");\r\n          //alert(\"line 27 created Channel: success\");\r\n        }, () => {\r\n          console.log(\"error\");\r\n          //alert(\"line 30 error\");\r\n        }, {\r\n          id: \"stmunew\",\r\n          description: \"StMU Push Channel\",\r\n          importance: 1,\r\n          vibration: true,\r\n          sound: \"default\",\r\n          visibility: 1\r\n        }\r\n      );\r\n    } catch (e) {\r\n      console.log(\"channel not created\" + e);\r\n      //alert(\"line 42 channel not created\");\r\n    }\r\n    Notification.on(\"registration\", function(data) {\r\n      var devicePushID = data.registrationId;\r\n      console.log(\"line 42 devicePushID: \" + JSON.stringify(devicePushID));\r\n      //alert(\"line 47 devicePushID: \" + JSON.stringify(devicePushID));\r\n      var pushDeviceData = {\r\n        \"tenant\": MyCampusApp.rootScope.tenant,\r\n        \"id\": devicePushID,\r\n        \"type\": device.platform,\r\n        \"channel\": \"all\"\r\n      };\r\n      $.post(\"https://push.kryptosmobile.com/kryptosds/push/adddeviceToChannel\", pushDeviceData).success(function(response) {\r\n        $.jStorage.set(\"deviceID\", devicePushID);\r\n        console.log(\"line 51 response: \" + JSON.stringify(response));\r\n        //alert(\"line 57 response: \" + JSON.stringify(response));\r\n      }).error(function(err) {\r\n        console.log(err);\r\n        //alert(\"line 60 error\");\r\n      });\r\n    });\r\n\r\n    Notification.on(\"notification\", function(data) {\r\n      //alert(\"line 65 data: \" + JSON.stringify(data));\r\n      navigator.notification.alert(data.message, null, data.title, 'Ok');\r\n    });\r\n\r\n  } catch (e) {\r\n    console.log(e);\r\n  }\r\n<\/script>\r\n<script>\r\n  try {\r\n    if (!MyCampusApp.rootScope.cangelistadded) {\r\n      console.log(MyCampusApp);\r\n      MyCampusApp.rootScope.$on(\"$routeChangeStart\", function(event, next, current) {\r\n        //alert(event);\r\n        $(\".app-body\").removeClass(\"slideInDown\");\r\n        $(\".app-body\").removeClass(\"slideInRight\");\r\n        $(\".app-body\").removeClass(\"slideInLeft\");\r\n        $(\".app-body\").addClass(\"animated\");\r\n\r\n        //$(\".app-body\").addClass(\"slideOutUp\");\r\n\r\n      });\r\n      MyCampusApp.rootScope.$on(\"$routeChangeSuccess\", function(event, next, current) {\r\n        // alert('success');\r\n        console.log(\"route change success\");\r\n        console.log(\"Event:\");\r\n        console.log(event);\r\n        console.log(\"next:\");\r\n        console.log(next);\r\n        console.log(\"current:\");\r\n        console.log(current);\r\n        console.log(next.pathParams.appid);\r\n        console.log(\"----------\");\r\n        if (next.pathParams.appid != \"QuickLaunch4\") {\r\n          console.log(\"ql icon opacity restored\")\r\n          $('.divQuickLaunch img').css('opacity', '0.4');\r\n          $('.divQuickLaunch').css('opacity', '0.4');\r\n        }\r\n        if (next.params.appid == 'SignIn2') {\r\n          $(\".app-body\").addClass(\"slideInDown\");\r\n        } else {\r\n\r\n          console.log(MyCampusApp.rootScope.leftToRight);\r\n\r\n          if (MyCampusApp.rootScope.leftToRight) {\r\n            $(\".app-body\").addClass(\"slideInLeft\");\r\n            MyCampusApp.rootScope.leftToRight = false;\r\n          } else {\r\n            $(\".app-body\").addClass(\"slideInRight\");\r\n          }\r\n        }\r\n\r\n        $(\".app-body\").addClass(\"animated\");\r\n        //$(\".app-body\").removeClass(\"slideOutUp\");\r\n      });\r\n      MyCampusApp.rootScope.cangelistadded = true;\r\n    }\r\n  } catch (e) {\r\n    //alert(e)\r\n  }\r\n<\/script>\r\n\r\n<script>\r\n  try {\r\n    $(\"#mainSidebar\").css('background', '#232323 !important');\r\n\r\n    if ($.jStorage.get(\"userdetails\") != null && $.jStorage.get(\"userdetails\") != undefined) {\r\n      //alert(\"testrdt\");\r\n      var e = document.getElementsByClassName(\"app\")[0];\r\n      var $injector = angular.element(e).injector();\r\n      var $location = $injector.get('$location');\r\n      //$location.path(\"/app/Home4/Home4\");\r\n      $location.path(\"/app/Menu82/Menu82\");\r\n\r\n    } else {\r\n      var e = document.getElementsByClassName(\"app\")[0];\r\n      var $injector = angular.element(e).injector();\r\n      var $location = $injector.get('$location');\r\n      $location.path(\"/app/Menu82/Menu82\");\r\n    }\r\n  } catch (e) {\r\n    alert(e)\r\n  }\r\n<\/script>\r\n<script>\r\n  var onBackKeyDown = function(event) {\r\n    //alert('back');\r\n    var loc = window.location;\r\n    MyCampusApp.rootScope.leftToRight = true;\r\n    if (loc.hash == \"#/app/WhatsUp/WhatsUp\" || loc.hash == \"#/app/Menu82/Menu82\") {\r\n      navigator.app.exitApp();\r\n    } else if (loc.hash == \"#/app/SocialMedia3/SocialMedia3\") {\r\n      window.location.href = \"index.html#app/GuestApps/GuestApps\";\r\n      //alert(\"signuo\");\r\n    } else {\r\n      navigator.app.backHistory();\r\n\r\n    }\r\n  }\r\n  document.addEventListener(\"backbutton\", onBackKeyDown, true);\r\n<\/script>\r\n\r\n<script>\r\n  $('input:text').focusout(function() {\r\n\r\n    /*  document.getElementsByClassName('footerGroupIcons')[0].style.display = \"block !important\";\r\n     alert(document.getElementsByClassName('footerGroupIcons')[0].style.display);*/\r\n\r\n    $(\"#footerContentContainer\").addClass('footerGroupIcons').removeClass('hideFooter');\r\n    $(\"#bottomPoweredBy\").removeClass('hideFooter');\r\n\r\n  });\r\n\r\n  $('input:text').focusin(function() {\r\n    // document.getElementsByClassName('footerGroupIcons')[0].style.display = \"none !important\";\r\n    // alert(document.getElementsByClassName('footerGroupIcons')[0].style.display);\r\n    //$(\".footerGroupIcons\").css('display', 'none !important');\r\n\r\n    $(\"#footerContentContainer\").addClass('hideFooter').removeClass('footerGroupIcons');\r\n    $(\"#bottomPoweredBy\").addClass('hideFooter');\r\n  })\r\n<\/script>",
   "middlewareServerUrl": "https://appmobileprd.stmarytx.edu/bannermobile",
   "feedbackEmail": "support@unifyed.com",
   "backgroundurl": "StMU/background.png",
@@ -568,8 +568,8 @@
           "quickdialnumbers": 
           [
             {
-              "grade_point": "4.0",
-              "grade": "A"
+              "grade": "A",
+              "grade_point": "4.0"
             },
             {
               "grade": "A-",
@@ -580,28 +580,28 @@
               "grade_point": "3.33"
             },
             {
-              "grade_point": "3.0",
-              "grade": "B"
+              "grade": "B",
+              "grade_point": "3.0"
             },
             {
               "grade_point": "2.67",
               "grade": "B-"
             },
             {
-              "grade": "C+",
-              "grade_point": "2.33"
+              "grade_point": "2.33",
+              "grade": "C+"
             },
             {
               "grade": "C",
               "grade_point": "2.0"
             },
             {
-              "grade_point": "1.67",
-              "grade": "C-"
+              "grade": "C-",
+              "grade_point": "1.67"
             },
             {
-              "grade": null,
-              "grade_point": null
+              "grade_point": null,
+              "grade": null
             }
           ]
         }
@@ -739,7 +739,7 @@
         {
           "pageid": "Canvas258",
           "pageTemplate": "<div><\/div>",
-          "pageprocessor": "function pageprocessorCanvas258(pagedef, $scope, $routeParams, $compile, $http, $rootScope, $sce, $window, $location) {\r\n  if (!$rootScope.ticket) {\r\n    $rootScope.fromCanvas = true;\r\n    $location.path(\"/app/SignIn279/SignIn279\");\r\n    return;\r\n  }\r\n  //alert(\"$rootScope.ticket\" + $rootScope.ticket);\r\n\r\n\r\n  var appnames = pagedef.appnames.split(\",\");\r\n  $rootScope.back = function() {\r\n    $rootScope.leftToRight = true;\r\n    $location.path(\"/app/Menu82/Menu82\");\r\n    //window.location.href = \"index.html#app/Menu82/Menu82\";\r\n  }\r\n  var results = [];\r\n  for (var i = 0; i < appnames.length; i++) {\r\n    for (var j = 0; j < $rootScope.apps.length; j++) {\r\n      if ($rootScope.apps[j].displayname == appnames[i]) {\r\n        results.push($rootScope.apps[j]);\r\n      }\r\n    }\r\n  }\r\n  $scope.groupapps = results;\r\n  $rootScope.appDisplayName = $rootScope.mobileAppName;\r\n  var data1 = $compile($(pagedef.datatemplate))($scope);\r\n  $(\"#appContent\").append(data1);\r\n\r\n  /*var data2 = '<div class=\"list-group-item proximaFont borderNone listItemCustomPadding ng-scope\" style=\"background-color: #252729 !important;padding:0px 18px 8px 18px;\"><div class=\"hamburgerSearchBox\"><input class=\"form-control needsclick\" placeholder=\"Search Applets\" style=\"background: transparent;border: none;color: #fff;padding: 6px 6px;\" type=\"text\" /><\/div><\/div>';\r\n  var htmlView = $compile($(data2))($scope);\r\n\r\n  $(\"#fixedHeaderContent\").html(htmlView);*/\r\n\r\n  $scope.$on(\"$destroy\", function() {\r\n    $(\"#fixedHeaderContent\").html(\"\");\r\n  });\r\n  $('input:text').focusout(function() {\r\n\r\n    /*  document.getElementsByClassName('footerGroupIcons')[0].style.display = \"block !important\";\r\n     alert(document.getElementsByClassName('footerGroupIcons')[0].style.display);*/\r\n\r\n    $(\"#footerContentContainer\").addClass('footerGroupIcons').removeClass('hideFooter');\r\n    $(\"#bottomPoweredBy\").removeClass('hideFooter');\r\n\r\n  });\r\n\r\n  $('input:text').focusin(function() {\r\n    // document.getElementsByClassName('footerGroupIcons')[0].style.display = \"none !important\";\r\n    // alert(document.getElementsByClassName('footerGroupIcons')[0].style.display);\r\n    //$(\".footerGroupIcons\").css('display', 'none !important');\r\n\r\n    $(\"#footerContentContainer\").addClass('hideFooter').removeClass('footerGroupIcons');\r\n    $(\"#bottomPoweredBy\").addClass('hideFooter');\r\n  })\r\n}",
+          "pageprocessor": "function pageprocessorCanvas258(pagedef, $scope, $routeParams, $compile, $http, $rootScope, $sce, $window, $location) {\r\n  if (!$rootScope.ticket) {\r\n    $rootScope.fromCanvas = true;\r\n    $location.path(\"/app/SignIn279/SignIn279\");\r\n    return;\r\n  }\r\n  //alert(\"$rootScope.ticket\" + $rootScope.ticket);\r\n\r\n\r\n  var appnames = pagedef.appnames.split(\",\");\r\n  $rootScope.back = function() {\r\n    $rootScope.leftToRight = true;\r\n    $location.path(\"/app/Menu82/Menu82\");\r\n    //window.location.href = \"index.html#app/Menu82/Menu82\";\r\n  }\r\n  var results = [];\r\n  for (var i = 0; i < appnames.length; i++) {\r\n    for (var j = 0; j < $rootScope.apps.length; j++) {\r\n      if ($rootScope.apps[j].displayname == appnames[i]) {\r\n        results.push($rootScope.apps[j]);\r\n      }\r\n    }\r\n  }\r\n  $scope.groupapps = results;\r\n  $rootScope.appDisplayName = $rootScope.mobileAppName;\r\n  var data1 = $compile($(pagedef.datatemplate))($scope);\r\n  $(\"#appContent\").append(data1);\r\n\r\n  /*var data2 = '<div class=\"list-group-item proximaFont borderNone listItemCustomPadding ng-scope\" style=\"background-color: #252729 !important;padding:0px 18px 8px 18px;\"><div class=\"hamburgerSearchBox\"><input class=\"form-control needsclick\" placeholder=\"Search Applets\" style=\"background: transparent;border: none;color: #fff;padding: 6px 6px;\" type=\"text\" /><\/div><\/div>';\r\n  var htmlView = $compile($(data2))($scope);\r\n\r\n  $(\"#fixedHeaderContent\").html(htmlView);*/\r\n\r\n  $scope.$on(\"$destroy\", function() {\r\n    $(\"#fixedHeaderContent\").html(\"\");\r\n  });\r\n  $('input:text').focusout(function() {\r\n\r\n    /*  document.getElementsByClassName('footerGroupIcons')[0].style.display = \"block !important\";\r\n     alert(document.getElementsByClassName('footerGroupIcons')[0].style.display);*/\r\n\r\n    $(\"#footerContentContainer\").addClass('footerGroupIcons').removeClass('hideFooter');\r\n    $(\"#bottomPoweredBy\").removeClass('hideFooter');\r\n\r\n  });\r\n\r\n  $('input:text').focusin(function() {\r\n    // document.getElementsByClassName('footerGroupIcons')[0].style.display = \"none !important\";\r\n    // alert(document.getElementsByClassName('footerGroupIcons')[0].style.display);\r\n    //$(\".footerGroupIcons\").css('display', 'none !important');\r\n\r\n    $(\"#footerContentContainer\").addClass('hideFooter').removeClass('footerGroupIcons');\r\n    $(\"#bottomPoweredBy\").addClass('hideFooter');\r\n  })\r\n}\r\n",
           "appnames": "My Courses,My Grades",
           "datatemplate": "<style type=\"text/css\">\r\n  .navbar-absolute-top div.pull-right div.btn-navbar {\r\n    display: block !important;\r\n  }\r\n  \r\n  .footerGroupIcons div div img {\r\n    opacity: 0.4;\r\n  }\r\n  \r\n  .footerGroupIcons div div a div {}\r\n  \r\n  .divMenu img {\r\n    opacity: 1 !important;\r\n  }\r\n  \r\n  .divMenu {\r\n    opacity: 1 !important;\r\n  }\r\n  \r\n  .divMenu a div.openSans {}\r\n  \r\n  #fixedHeaderContent {\r\n    display: none;\r\n  }\r\n  \r\n  .app-body {\r\n    background-color: #eaebec;\r\n    background: #eaebec;\r\n  }\r\n  \r\n  a.list-group-item:hover,\r\n  a.list-group-item:active {\r\n    background-color: #fff;\r\n    background: #fff;\r\n  }\r\n  \r\n  .navbar-absolute-top {\r\n    border: none !important;\r\n  }\r\n  \r\n  .has-navbar-top .app-body {\r\n    padding-top: 50px;\r\n  }\r\n  \r\n  #fixedHeaderContent {\r\n    display: block;\r\n    top: 50px;\r\n  }\r\n  \r\n  .transparent {\r\n    background: transparent !important;\r\n  }\r\n  \r\n  .group-heading-padding {\r\n    padding: 5px 15px !important;\r\n  }\r\n<\/style>\r\n<div class=\"proximaFont\">\r\n  <!--<div class=\"list-group-item proximaFont borderNone listItemCustomPadding ng-scope\" style=\"background-color: #252729 !important;padding:0px 18px 8px 18px;\">\r\n    <div class=\"hamburgerSearchBox\">\r\n      <input class=\"form-control needsclick\" ng-model=\"$root.appletSearch\" placeholder=\"Search Applets\" style=\"background: transparent;border: none;color: #fff;padding: 6px 6px;\" type=\"text\" />\r\n    <\/div>\r\n  <\/div>-->\r\n  <div class=\"list-group-item transparent proximaFont group-heading-padding\">CANVAS<\/div>\r\n\r\n  <a aria-label=\"{{app.displayname}}\" class=\"list-group-item listItemCustomPadding listitemborderSolid\" href=\"#/app/{{app.name}}/{{app.name}}\" ng-repeat=\"app in groupapps\">\r\n\r\n    <div class=\"pull-left\"><img class=\"avatar\" style=\"width:36px;\" id=\"logo-{{app.name}}\" src=\"{{app.logo}}\" alt=\"\">\r\n    <\/div>\r\n    <div style=\"margin-left:9px;display:inline-block !important;margin-top:9px !important;\" class='pull-left fontSize14 proximaSemiBoldFont' ng-if=\"app.displayname == 'WhatsUp'\">What's Up\r\n    <\/div>\r\n    <div style=\"margin-left:9px;display:inline-block !important;margin-top:9px !important;\" class='pull-left fontSize14 proximaSemiBoldFont' ng-if=\"app.displayname != 'WhatsUp'\">{{app.displayname}}\r\n    <\/div>\r\n    <div class=\"pull-right fontSize14 proximaSemiBoldFont\" ng-if=\"app.displayname == 'Alerts'\">\r\n      <i class=\"fa fa-chevron-right fontSize14\" aria-hidden=\"true\" style=\"margin-top: 13px;\"><\/i>\r\n    <\/div>\r\n    <div class=\"clearfix\"><\/div>\r\n  <\/a>\r\n<\/div>"
         }
@@ -763,7 +763,7 @@
         {
           "pageid": "MyGrades5",
           "pageTemplate": "<div><\/div>",
-          "pageprocessor": "function pageprocessorMyGrades5(pagedef, $scope, $routeParams, $compile, $http, $rootScope, $sce, $window, $location) {\r\n  /* if ($rootScope.fromCanvasApp) {\r\n     $rootScope.back = function() {\r\n       $location.path(\"/app/CanvasLogin/CanvasLogin\");\r\n     };\r\n   } else {*/\r\n  $rootScope.back = function() {\r\n    $location.path(\"/app/Canvas258/Canvas258\");\r\n  };\r\n  //}\r\n  var data1 = $compile($(pagedef.datatemplate))($scope);\r\n  $(\"#appContent\").append(data1);\r\n\r\n  var accesstoken = $.jStorage.get(\"CanvasAuthToken\");\r\n  alert(\"line 15 accesstoken:  \" +JSON.stringify(accesstoken));\r\n  // var accesstoken = ($rootScope.CanvasTokenCode);\r\n\r\n  //alert(accesstoken + \"accesstoken\");\r\n  $scope.openCourseGrades = function(course) {\r\n    $rootScope.canvasSelCourse = course;\r\n    $location.path(\"/app/MyGrades5/MyGrades5Page2\");\r\n  }\r\n  $scope.setCourseColor = function(course) {\r\n    var color = {\r\n      'border-left': '10px solid ' + $rootScope.CanvasColors['course_' + course.id],\r\n      'background': 'rgba(225,225,225,0.3)',\r\n      'color': '#fff'\r\n    };\r\n    return color;\r\n  }\r\n  if (accesstoken) {\r\n    $rootScope.invokeCanvasAPI(\"/api/v1/courses/?include[]=sections&include[]=term&include[]=teachers&include[]=total_scores\", \"GET\", {}, function(courses) {\r\n      $scope.canvasmycourses = courses;\r\n\r\n    });\r\n    return;\r\n  } else {\r\n    $location.path(\"/app/CanvasLogin/CanvasLogin\");\r\n  }\r\n}",
+          "pageprocessor": "function pageprocessorMyGrades5(pagedef, $scope, $routeParams, $compile, $http, $rootScope, $sce, $window, $location) {\r\n  /* if ($rootScope.fromCanvasApp) {\r\n     $rootScope.back = function() {\r\n       $location.path(\"/app/CanvasLogin/CanvasLogin\");\r\n     };\r\n   } else {*/\r\n  $rootScope.back = function() {\r\n    $location.path(\"/app/Canvas258/Canvas258\");\r\n  };\r\n  //}\r\n  var data1 = $compile($(pagedef.datatemplate))($scope);\r\n  $(\"#appContent\").append(data1);\r\n\r\n  var accesstoken = $.jStorage.get(\"CanvasAuthToken\");\r\n  //alert(\"line 15 accesstoken:  \" + JSON.stringify(accesstoken));\r\n  //var accesstoken = ($rootScope.CanvasTokenCode);\r\n\r\n  //alert(accesstoken + \"accesstoken\");\r\n  $scope.openCourseGrades = function(course) {\r\n    $rootScope.canvasSelCourse = course;\r\n    $location.path(\"/app/MyGrades5/MyGrades5Page2\");\r\n  }\r\n  $scope.setCourseColor = function(course) {\r\n    var color = {\r\n      'border-left': '10px solid ' + $rootScope.CanvasColors['course_' + course.id],\r\n      'background': 'rgba(225,225,225,0.3)',\r\n      'color': '#fff'\r\n    };\r\n    return color;\r\n  }\r\n  if (accesstoken) {\r\n    $rootScope.invokeCanvasAPI(\"/api/v1/courses/?include[]=sections&include[]=term&include[]=teachers&include[]=total_scores\", \"GET\", {}, function(courses) {\r\n      $scope.canvasmycourses = courses;\r\n\r\n    });\r\n    return;\r\n  } else {\r\n    $location.path(\"/app/CanvasLogin/CanvasLogin\");\r\n  }\r\n}",
           "datatemplate": "<div ng-repeat=\"course in canvasmycourses\" style=\"padding:5px;border:none;\">\r\n    <div ng-style=\"setCourseColor(course);\" id=\"c{{course.id}}\" class=\"list-group-item\" ng-click=\"openCourseGrades(course); \">\r\n        <h4 style=\"margin:0px;font-size:14px;\">{{course.name}}<span class=\"fa fa-chevron-circle-right pull-right\"><\/span><\/h4>\r\n        <p style=\"margin:0px;font-size:10px;\">{{course.course_code}}<span class=\"text-muted pull-right col-xs-4 text-right\"><small>{{course.term.name}}<\/small><\/span><\/p>\r\n        <div class=\"list-group-item clearfix\" style=\"background: rgba(255, 255, 255, 0.1); padding: 2px;border:none;\">\r\n            <div style=\"background: rgba(255, 255, 255, 0.1); padding: 2px;border:none;\" class=\"list-group-item clearfix\">\r\n                <div ng-if=\"enrl.role == 'StudentEnrollment'\" style=\"background:none;padding:10px;box-shadow:0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);\" ng-repeat=\"enrl in course.enrollments\">\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-6 col-md-6\">Current Score : <span class=\"pull-right\">{{enrl.computed_current_score}}<\/span><\/div>\r\n                        <div class=\"col-xs-6 col-md-6\">Final Score : <span class=\"pull-right\">{{enrl.computed_final_score}}<\/span><\/div>\r\n                    <\/div>\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-6 col-md-6\">Current Grade : <span class=\"pull-right\">{{enrl.computed_current_grade}}<\/span><\/div>\r\n                        <div class=\"col-xs-6 col-md-6\">Final Grade : <span class=\"pull-right\">{{enrl.computed_final_grade}}<\/span><\/div>\r\n                    <\/div>\r\n                <\/div>\r\n            <\/div>\r\n        <\/div>\r\n    <\/div>\r\n<\/div>"
         },
         {
@@ -933,82 +933,82 @@
           "feeds": 
           [
             {
-              "name": "Men's Baseball",
               "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=1",
-              "newsurl": "https://rattlerathletics.com/rss.aspx?path=baseball",
-              "scourl": null
+              "name": "Men's Baseball",
+              "scourl": null,
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=baseball"
             },
             {
-              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=6",
               "name": "Men's Basketball",
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=6",
               "scourl": null,
               "newsurl": "https://rattlerathletics.com/rss.aspx?path=mbball"
             },
             {
-              "newsurl": "https://rattlerathletics.com/rss.aspx?path=mgolf",
-              "scourl": null,
               "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=7",
+              "scourl": null,
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=mgolf",
               "name": "Men's Golf"
             },
             {
-              "newsurl": "https://rattlerathletics.com/rss.aspx?path=msoc",
-              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=8",
+              "scourl": null,
               "name": "Men's Soccer",
-              "scourl": null
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=msoc",
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=8"
             },
             {
-              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=9",
-              "name": "Men's Tennis",
               "newsurl": "https://rattlerathletics.com/rss.aspx?path=mten",
+              "name": "Men's Tennis",
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=9",
               "scourl": null
             },
             {
-              "name": "Women's Basketball",
               "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=11",
+              "scourl": null,
               "newsurl": "https://rattlerathletics.com/rss.aspx?path=wbball",
+              "name": "Women's Basketball"
+            },
+            {
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=wgolf",
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=12",
+              "scourl": null,
+              "name": "Women's Golf"
+            },
+            {
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=wsoc",
+              "name": "Women's Soccer",
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=13",
               "scourl": null
             },
             {
-              "name": "Women's Golf",
-              "scourl": null,
-              "newsurl": "https://rattlerathletics.com/rss.aspx?path=wgolf",
-              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=12"
-            },
-            {
-              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=13",
-              "scourl": null,
-              "name": "Women's Soccer",
-              "newsurl": "https://rattlerathletics.com/rss.aspx?path=wsoc"
-            },
-            {
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=wten",
               "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=14",
               "name": "Women's Tennis",
-              "scourl": null,
-              "newsurl": "https://rattlerathletics.com/rss.aspx?path=wten"
+              "scourl": null
             },
             {
-              "scourl": null,
-              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=10",
               "newsurl": "https://rattlerathletics.com/rss.aspx?path=softball",
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=10",
+              "scourl": null,
               "name": "Women's Softball"
             },
             {
-              "name": "Women's Volleyball",
-              "newsurl": "https://rattlerathletics.com/rss.aspx?path=wvball",
-              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=15",
-              "scourl": null
-            },
-            {
-              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=16",
-              "name": "Cheer",
               "scourl": null,
-              "newsurl": "https://rattlerathletics.com/rss.aspx?path=cheer"
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=15",
+              "name": "Women's Volleyball",
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=wvball"
             },
             {
-              "name": "Dance",
-              "newsurl": "https://rattlerathletics.com/rss.aspx?path=dance",
+              "scourl": null,
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=cheer",
+              "name": "Cheer",
+              "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=16"
+            },
+            {
               "schurl": "https://rattlerathletics.com/services/calendar.ashx?type=rss&sport=18",
-              "scourl": null
+              "scourl": null,
+              "name": "Dance",
+              "newsurl": "https://rattlerathletics.com/rss.aspx?path=dance"
             }
           ]
         },
@@ -1817,8 +1817,8 @@
               "number": "210-436-3330"
             },
             {
-              "name": "University Police Administration",
-              "number": "210-436-3472"
+              "number": "210-436-3472",
+              "name": "University Police Administration"
             }
           ]
         }
